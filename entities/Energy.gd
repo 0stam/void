@@ -9,11 +9,11 @@ func change_position():
 	position = get_parent().get_random_position()
 
 
-func _process(delta):
+func _process(_delta):
 	if $TerrainCollision.get_overlapping_bodies() != []:
 		change_position()
 
 
-func _on_PlayerCollision_body_entered(body):
+func on_hit(_object=null):
 	get_tree().call_group("player", "restore_energy")
 	queue_free()
