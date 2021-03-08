@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed : int = 700
+var speed : int = 601
 var acceleration : float = 8
 
 var velocity : Vector2 = Vector2.ZERO
@@ -27,4 +27,5 @@ func on_hit():
 
 func _on_PlayerCollision_body_entered(_body):
 # warning-ignore:return_value_discarded
+	print(Global.player_progress)
 	get_tree().change_scene("res://main/Main.tscn")

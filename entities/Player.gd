@@ -12,10 +12,12 @@ var direction : Vector2 = Vector2.ZERO
 var velocity : Vector2 = Vector2.ZERO
 var chunk_positions : Array = []
 var chunk_size : int = Global.chunk_extend * 2
+var can_shoot : bool = true
 
 var bullet : PackedScene = preload("res://entities/Bullet.tscn")
 
 onready var energy : float = max_energy
+onready var shoot_timer : Timer = $ShootTimer
 
 
 func _ready():
@@ -43,6 +45,7 @@ func _process(delta):
 	modulate = Color(percentage, percentage, percentage)
 	if energy < 0:
 # warning-ignore:return_value_discarded
+		print(Global.player_progress)
 		get_tree().change_scene("res://main/Main.tscn")
 	
 	Global.player_position = position
@@ -61,12 +64,10 @@ func _on_ChunkTimer_timeout():
 
 func on_chunk_created(chunk_position : Vector2):
 	chunk_positions.append(chunk_position)
-	print("New chunk: ", chunk_position)
 
 
 func on_chunk_destroyed(chunk_position : Vector2):
 	chunk_positions.erase(chunk_position)
-	print("Chunk destroyed: ", chunk_position)
 
 
 func restore_energy(amount : float = max_energy):
@@ -74,10 +75,15 @@ func restore_energy(amount : float = max_energy):
 
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed and can_shoot:
 		var spawn = bullet.instance()
 		spawn.direction = global_position.direction_to(get_global_mouse_position())
 		spawn.position = position
 		spawn.velocity = velocity / 2
 		get_node("../Bullets").add_child(spawn)
 		
+		can_shoot = false
+		shoot_timer.start()
+
+func _on_ShootTimer_timeout():
+	can_shoot = true

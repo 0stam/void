@@ -2,7 +2,7 @@ extends Node
 
 # Settings
 var chunk_extend : float = 1000
-var end : float = 100000
+var end : float = 30000
 
 # Player position
 var player_position : Vector2 = Vector2.ZERO  # Updated before every chunk generation
@@ -14,3 +14,5 @@ func calculate_progress():
 		player_progress = player_position.length() / end
 	else:
 		player_progress = 0
+	if player_progress >= 1:
+		get_tree().quit()

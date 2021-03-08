@@ -19,7 +19,7 @@ func generate():
 		spawn.position = spawn_position
 		spawn.rotation = rand_range(0, 2 * PI)
 		add_child(spawn)
-	if (Global.player_progress - 0.1) < randf():
+	if (Global.player_progress - 0.2) < randf():
 		add_child(energy.instance())
 	if (Global.player_progress) > randf():
 		var spawn = enemy.instance()
