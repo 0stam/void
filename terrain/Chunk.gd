@@ -8,7 +8,10 @@ var wall_count : int = 5
 
 func _ready():
 	get_tree().call_group("player", "on_chunk_created", position)
-	generate()
+	if position.length() + extend + 300 >= Global.end:
+		queue_free()
+	else:
+		generate()
 	
 
 

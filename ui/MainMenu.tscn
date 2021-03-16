@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/MainMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/Lato/Lato-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+font_data = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 960, 540, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 50, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 14.0
+margin_top = 260.705
+margin_right = 739.0
+margin_bottom = 1066.71
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Buttons"]
+margin_right = 725.0
+margin_bottom = 241.0
+custom_fonts/font = SubResource( 2 )
+text = "Void"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 245.0
+margin_right = 725.0
+margin_bottom = 380.0
+text = "Play"
+
+[node name="Upgrades" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 384.0
+margin_right = 725.0
+margin_bottom = 519.0
+text = "Upgrades"
+
+[node name="HighScore" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 523.0
+margin_right = 725.0
+margin_bottom = 658.0
+text = "High score"
+
+[node name="Exit" parent="Buttons" instance=ExtResource( 1 )]
+margin_top = 662.0
+margin_right = 725.0
+margin_bottom = 797.0
+text = "Exit"
+
+[node name="Particles" type="Particles2D" parent="."]
+position = Vector2( 960, 540 )
+amount = 150
+lifetime = 3.0
+process_material = SubResource( 3 )
+
+[connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]

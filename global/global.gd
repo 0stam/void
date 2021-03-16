@@ -15,4 +15,5 @@ func calculate_progress():
 	else:
 		player_progress = 0
 	if player_progress >= 1:
-		get_tree().quit()
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://ui/MainMenu.tscn")
