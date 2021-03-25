@@ -1,0 +1,18 @@
+{
+	"1": {
+		"enemy_ratio": 1,
+		"enemy_modifier": 0,
+		"enemy_speed": 500,
+		"energy_ratio": 1,
+		"energy_modifier": -0.2,
+		"end": 30000
+	},
+	"2": {
+		"enemy_ratio": 1.2,
+		"enemy_modifier": 0,
+		"enemy_speed": 510,
+		"energy_ratio": 1,
+		"energy_modifier": -0.2,
+		"end": 30000
+	}
+}

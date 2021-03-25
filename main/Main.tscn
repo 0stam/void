@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://effects/Wave.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main/Main.gd" type="Script" id=3]
 [ext_resource path="res://FPSLabel.gd" type="Script" id=4]
 [ext_resource path="res://main/Label.gd" type="Script" id=5]
+[ext_resource path="res://terrain/Chunk.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,6 +41,9 @@ __meta__ = {
 [node name="Bullets" type="Node2D" parent="."]
 
 [node name="Chunks" type="Node2D" parent="."]
+
+[node name="Chunk" parent="Chunks" instance=ExtResource( 6 )]
+wall_count = 3
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 

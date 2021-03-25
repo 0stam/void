@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Sonar Dead Zone.mp3-64a22ceab432952c76d96f93f21a3e18.mp3str"
+
+[deps]
+
+source_file="res://music/Sonar Dead Zone.mp3"
+dest_files=[ "res://.import/Sonar Dead Zone.mp3-64a22ceab432952c76d96f93f21a3e18.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Stygiomedusa Gigantea.mp3-ceb0b71ff465890ff97dbd7166485e75.mp3str"
+
+[deps]
+
+source_file="res://music/Stygiomedusa Gigantea.mp3"
+dest_files=[ "res://.import/Stygiomedusa Gigantea.mp3-ceb0b71ff465890ff97dbd7166485e75.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

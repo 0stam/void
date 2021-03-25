@@ -7,6 +7,9 @@ onready var chunks : Node2D = $Chunks
 
 func _ready():
 	randomize()
+	Music.set_playlist("ambient")
+	Music.start()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 
 func _on_Player_chunk_generation_requested(chunk_position):

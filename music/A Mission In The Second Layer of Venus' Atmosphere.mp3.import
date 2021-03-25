@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/A Mission In The Second Layer of Venus' Atmosphere.mp3-d9117988ea69363deaafa7ad77aeabbb.mp3str"
+
+[deps]
+
+source_file="res://music/A Mission In The Second Layer of Venus' Atmosphere.mp3"
+dest_files=[ "res://.import/A Mission In The Second Layer of Venus' Atmosphere.mp3-d9117988ea69363deaafa7ad77aeabbb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

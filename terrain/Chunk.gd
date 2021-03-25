@@ -4,16 +4,15 @@ var wall : PackedScene = preload("res://terrain/Wall.tscn")
 var energy : PackedScene = preload("res://entities/Energy.tscn")
 var enemy : PackedScene = preload("res://entities/Enemy.tscn")
 var extend : int = Global.chunk_extend
-var wall_count : int = 5
+export var wall_count : int = 5
 
 func _ready():
 	get_tree().call_group("player", "on_chunk_created", position)
-	if position.length() + extend + 300 >= Global.end:
+	if position.length() + extend >= Global.end:
 		queue_free()
 	else:
 		generate()
 	
-
 
 func generate():
 	for i in wall_count:
@@ -22,12 +21,12 @@ func generate():
 		spawn.position = spawn_position
 		spawn.rotation = rand_range(0, 2 * PI)
 		add_child(spawn)
-	if (Global.player_progress - 0.2) < randf():
+	if (Global.player_progress * Global.energy_ratio + Global.energy_modifier) < randf():
 		add_child(energy.instance())
-	if (Global.player_progress) > randf():
+	if (Global.player_progress * Global.enemy_ratio + Global.enemy_modifier) > randf():
 		var spawn = enemy.instance()
 		spawn.position = get_random_position() + position
-		get_parent().add_child(spawn)
+		get_parent().call_deferred("add_child", spawn)
 
 
 func check_death(player_position : Vector2):

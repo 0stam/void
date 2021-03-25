@@ -21,7 +21,8 @@ onready var shoot_timer : Timer = $ShootTimer
 
 
 func _ready():
-	pass
+	yield(get_tree().create_timer(0.001), "timeout")
+	_on_ChunkTimer_timeout()
 
 
 func _process(delta):
@@ -84,6 +85,7 @@ func _input(event):
 		
 		can_shoot = false
 		shoot_timer.start()
+
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
