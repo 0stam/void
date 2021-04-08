@@ -17,6 +17,8 @@ func _ready():
 
 func set_playlist(val : String, reset : bool = false):
 	playlist = val
+	if reset:
+		track[playlist] = 0
 
 
 func next_track():

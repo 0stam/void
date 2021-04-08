@@ -195,8 +195,8 @@ LinkButton/constants/underline_spacing = 2
 LinkButton/fonts/font = null
 LinkButton/styles/focus = null
 MarginContainer/constants/margin_bottom = 8
-MarginContainer/constants/margin_left = 0
-MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_left = 3
+MarginContainer/constants/margin_right = 3
 MarginContainer/constants/margin_top = 0
 MenuButton/colors/font_color = Color( 0, 0, 0, 1 )
 MenuButton/colors/font_color_disabled = Color( 0, 0, 0, 1 )
@@ -457,7 +457,8 @@ margin_bottom = 135.0
 theme = SubResource( 1 )
 
 [node name="Button" type="Button" parent="Margin"]
-margin_right = 758.0
+margin_left = 3.0
+margin_right = 755.0
 margin_bottom = 127.0
 rect_min_size = Vector2( 20, 20 )
 focus_mode = 0
@@ -468,7 +469,6 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 0.854902, 0.854902, 0.854902, 1 )
 enabled_focus_mode = 0
-text = "Placeholder"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
