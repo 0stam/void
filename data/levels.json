@@ -1,18 +1,20 @@
 {
-	"1": {
+	"Layer 1": {
 		"enemy_ratio": 1,
 		"enemy_modifier": 0,
 		"enemy_speed": 500,
 		"energy_ratio": 1,
 		"energy_modifier": -0.2,
-		"end": 30000
+		"end": 30000,
+		"level_description": "Entry layer challanging enough for the weak ones to perish, but easy enough for the beginners on the road to improve."
 	},
-	"2": {
-		"enemy_ratio": 1.2,
+	"Layer 2": {
+		"enemy_ratio": 3,
 		"enemy_modifier": 0,
-		"enemy_speed": 510,
+		"enemy_speed": 650,
 		"energy_ratio": 1,
 		"energy_modifier": -0.2,
-		"end": 30000
+		"end": 30000,
+		"level_description": "Not far from the impossible, so don't be put off if it destroys you :) Definetely not intended for the final version of the game."
 	}
 }

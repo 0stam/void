@@ -29,6 +29,7 @@ func next_track():
 
 
 func start():
+	#return
 	var new_stream = load(playlists[playlist][track[playlist]])
 	if not playing or stream != new_stream:
 		stream = new_stream

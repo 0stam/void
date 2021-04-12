@@ -15,7 +15,7 @@ onready var border := $Border
 
 func _ready():
 	is_ready = true
-	button.text = text
+	set_text(text)
 	set_border_width(border_width)
 	set_font(font)
 
