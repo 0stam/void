@@ -18,7 +18,7 @@ var player_progress : float = 0  # Beetwen 0-1, indicates percentage progress to
 # Levels
 var level : int = 0
 var level_data : Dictionary = {}
-var levels = ["Layer 1", "Layer 2"]
+var levels = ["Layer 1", "Layer 2", "Layer 2", "Layer 2", "Layer 2"]
 var known_level = 1
 var level_description : String = ""
 

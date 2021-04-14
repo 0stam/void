@@ -25,12 +25,14 @@ func update():
 	for i in layer_graphics.get_children():
 		if i.name == "Middle":
 			continue
-		if int(i.name) <= Global.level:
+		if int(i.name) == Global.level:
 			i.get_node("Animation").play("basic")
-			i.show()
 		else:
 			i.get_node("Animation").stop()
-			i.hide()
+			if int(i.name) < Global.level:
+				i.modulate.a = 1
+			else:
+				i.modulate.a = 0.2
 
 
 func _on_Left_pressed():
