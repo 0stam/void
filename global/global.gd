@@ -11,6 +11,9 @@ var enemy_speed : float = 500
 var energy_ratio : float = 1
 var energy_modifier : float = -0.2
 
+var shooter_ratio : float = 0
+var shooter_modifier : float = 0
+
 # Player position
 var player_position : Vector2 = Vector2.ZERO  # Updated before every chunk generation
 var player_progress : float = 0  # Beetwen 0-1, indicates percentage progress to the end

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://effects/Stars.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/arrows/arrow_gray.png" type="Texture" id=2]
@@ -18,6 +18,51 @@
 [ext_resource path="res://art/layer0.png" type="Texture" id=16]
 [ext_resource path="res://art/layer4.png" type="Texture" id=17]
 [ext_resource path="res://art/layer3.png" type="Texture" id=18]
+
+[sub_resource type="Animation" id=1]
+resource_name = "basic"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "basic"
@@ -150,7 +195,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0 ),
+"points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2, 4 )
 }
 
@@ -195,54 +240,33 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 2, 4 )
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "basic"
-length = 4.0
-loop = true
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:modulate:r")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 2, 4 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:modulate:g")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 2, 4 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath(".:modulate:b")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 2, 4 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath(".:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0, 2, 4 )
 }
+
+[sub_resource type="InputEventAction" id=6]
+action = "left"
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventAction" id=8]
+action = "right"
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="InputEventAction" id=10]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[sub_resource type="InputEventAction" id=12]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=13]
+shortcut = SubResource( 12 )
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -313,7 +337,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="Graphics/0"]
-anims/basic = SubResource( 2 )
+anims/basic = SubResource( 1 )
 
 [node name="1" type="TextureRect" parent="Graphics"]
 modulate = Color( 1, 1, 1, 0.2 )
@@ -332,7 +356,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="Graphics/1"]
-anims/basic = SubResource( 3 )
+anims/basic = SubResource( 2 )
 
 [node name="2" type="TextureRect" parent="Graphics"]
 modulate = Color( 1, 1, 1, 0.2 )
@@ -351,7 +375,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="Graphics/2"]
-anims/basic = SubResource( 4 )
+anims/basic = SubResource( 3 )
 
 [node name="3" type="TextureRect" parent="Graphics"]
 modulate = Color( 1, 1, 1, 0.2 )
@@ -370,7 +394,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="Graphics/3"]
-anims/basic = SubResource( 5 )
+anims/basic = SubResource( 4 )
 
 [node name="4" type="TextureRect" parent="Graphics"]
 modulate = Color( 1, 1, 1, 0.2 )
@@ -389,7 +413,7 @@ __meta__ = {
 }
 
 [node name="Animation" type="AnimationPlayer" parent="Graphics/4"]
-anims/basic = SubResource( 6 )
+anims/basic = SubResource( 5 )
 
 [node name="Selection" type="VBoxContainer" parent="."]
 margin_left = 51.521
@@ -417,6 +441,7 @@ margin_right = 179.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 90, 100 )
 size_flags_vertical = 4
+shortcut = SubResource( 7 )
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 7 )
 expand = true
@@ -437,6 +462,7 @@ margin_right = 659.0
 margin_bottom = 110.0
 rect_min_size = Vector2( 90, 100 )
 size_flags_vertical = 4
+shortcut = SubResource( 9 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 2 )
 expand = true
@@ -478,6 +504,7 @@ size_flags_horizontal = 3
 text = "Play"
 border_width = 6
 font = ExtResource( 9 )
+shortcut = SubResource( 11 )
 
 [node name="Margin3" type="TextureButton" parent="Selection"]
 visible = false
@@ -507,6 +534,7 @@ size_flags_horizontal = 3
 text = "Exit"
 border_width = 5
 font = ExtResource( 10 )
+shortcut = SubResource( 13 )
 
 [connection signal="pressed" from="Selection/Layers/Left" to="." method="_on_Left_pressed"]
 [connection signal="pressed" from="Selection/Layers/Right" to="." method="_on_Right_pressed"]

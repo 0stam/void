@@ -8,6 +8,7 @@ var is_ready = false
 export var text : String = "" setget set_text
 export var border_width : int = 7 setget set_border_width
 export var font : Font = preload("res://fonts/menu_button.tres") setget set_font
+export var shortcut : ShortCut = null setget set_shortcut
 
 onready var button := $Margin/Button
 onready var border := $Border
@@ -18,6 +19,7 @@ func _ready():
 	set_text(text)
 	set_border_width(border_width)
 	set_font(font)
+	set_shortcut(shortcut)
 
 
 func _on_Button_pressed():
@@ -43,3 +45,9 @@ func set_font(val : Font):
 	font = val
 	if is_ready:
 		button.set("custom_fonts/font", font)
+
+
+func set_shortcut(val : ShortCut):
+	shortcut = val
+	if is_ready:
+		button.shortcut = shortcut

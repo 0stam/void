@@ -45,9 +45,7 @@ func _process(delta):
 	var percentage : float = energy / max_energy
 	modulate = Color(percentage, percentage, percentage)
 	if energy < 0:
-# warning-ignore:return_value_discarded
-		print(Global.player_progress)
-		get_tree().change_scene("res://main/Main.tscn")
+		on_death()
 	
 	Global.player_position = position
 
@@ -81,6 +79,7 @@ func _input(event):
 		spawn.direction = global_position.direction_to(get_global_mouse_position())
 		spawn.position = position
 		spawn.velocity = velocity / 2
+		spawn.offset = 40
 		get_node("../Bullets").add_child(spawn)
 		
 		can_shoot = false
@@ -89,3 +88,13 @@ func _input(event):
 
 func _on_ShootTimer_timeout():
 	can_shoot = true
+
+
+func on_death():
+# warning-ignore:return_value_discarded
+	print(Global.player_progress)
+	get_tree().change_scene("res://main/Main.tscn")
+
+
+func on_hit():
+	on_death()

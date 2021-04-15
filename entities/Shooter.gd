@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-var speed : int = Global.enemy_speed
+var speed : int = Global.enemy_speed * 0.7
 var acceleration : float = 8
+var bullet : PackedScene = preload("res://entities/Bullet.tscn")
 
 var velocity : Vector2 = Vector2.ZERO
 
@@ -27,3 +28,16 @@ func on_hit():
 
 func _on_PlayerCollision_body_entered(_body):
 	get_tree().call_group("player", "on_death")
+
+
+func _on_ShootTimer_timeout():
+	var spawn := bullet.instance()
+	spawn.direction = global_position.direction_to(Global.player_position)
+	spawn.color = modulate
+	spawn.position = global_position
+	spawn.enemy = true
+	spawn.speed = Global.enemy_speed
+	spawn.offset = 70
+	spawn.scale *= 1.3
+	
+	get_node("../../Bullets").add_child(spawn)

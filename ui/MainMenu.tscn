@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=2]
@@ -10,6 +10,18 @@ font_path = "res://fonts/Lato/Lato-Bold.ttf"
 [sub_resource type="DynamicFont" id=2]
 size = 200
 font_data = SubResource( 1 )
+
+[sub_resource type="InputEventAction" id=3]
+action = "ui_accept"
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventAction" id=5]
+action = "ui_cancel"
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -53,6 +65,7 @@ margin_top = 245.0
 margin_right = 725.0
 margin_bottom = 380.0
 text = "Play"
+shortcut = SubResource( 4 )
 
 [node name="Upgrades" parent="Buttons" instance=ExtResource( 1 )]
 margin_top = 384.0
@@ -71,6 +84,7 @@ margin_top = 662.0
 margin_right = 725.0
 margin_bottom = 797.0
 text = "Exit"
+shortcut = SubResource( 6 )
 
 [node name="Stars" parent="." instance=ExtResource( 3 )]
 
