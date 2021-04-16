@@ -1,5 +1,9 @@
 extends Node
 
+# Physics process control
+var fps : int = 60 setget set_fps
+var typical_fps = [30, 60, 75, 120, 144, 240]
+
 # Settings
 var chunk_extend : float = 1000
 var end : float = 30000
@@ -77,3 +81,15 @@ func change_level(change : int):
 		elif level < 0:
 			level = known_level
 	initialize_level(levels[level])
+
+
+func set_fps(val : int):
+	if val != fps:
+		fps = typical_fps[-1]
+		for i in range(1, len(typical_fps)):
+			if abs(typical_fps[i] - val) > abs(typical_fps[i - 1] - val):
+				fps = typical_fps[i - 1]
+				break
+		
+		Engine.iterations_per_second = val * 2
+		fps = val

@@ -24,7 +24,7 @@ func _ready():
 	
 
 
-func _process(delta):
+func _physics_process(delta):
 	position += direction * delta
 
 

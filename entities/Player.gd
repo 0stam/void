@@ -51,6 +51,8 @@ func _process(delta):
 
 
 func _on_ChunkTimer_timeout():
+	Global.fps = Engine.get_frames_per_second()
+	
 	Global.calculate_progress()
 	get_tree().call_group("chunk", "check_death", position)
 	
