@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://art/circle.png" type="Texture" id=1]
 [ext_resource path="res://entities/Enemy.gd" type="Script" id=2]
+[ext_resource path="res://components/StuckChecker.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 61.4361
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"enemy",
+]]
 collision_layer = 16
 collision_mask = 17
 script = ExtResource( 2 )
@@ -25,5 +28,8 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="PlayerCollision"]
 shape = SubResource( 1 )
+
+[node name="StuckChecker" parent="." instance=ExtResource( 3 )]
+collision_shape_path = NodePath("../CollisionShape")
 
 [connection signal="body_entered" from="PlayerCollision" to="." method="_on_PlayerCollision_body_entered"]

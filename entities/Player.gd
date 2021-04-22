@@ -21,6 +21,7 @@ onready var shoot_timer : Timer = $ShootTimer
 
 
 func _ready():
+	get_tree().call_group("enemy", "queue_free")
 	yield(get_tree().create_timer(0.001), "timeout")
 	_on_ChunkTimer_timeout()
 
@@ -51,7 +52,7 @@ func _process(delta):
 
 
 func _on_ChunkTimer_timeout():
-	Global.fps = Engine.get_frames_per_second()
+	Global.fps = int(Engine.get_frames_per_second())
 	
 	Global.calculate_progress()
 	get_tree().call_group("chunk", "check_death", position)

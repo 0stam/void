@@ -7,6 +7,8 @@ var color : Color = Color(1, 1, 1, 1)
 var enemy : bool = false # Determines if bullet is friendly and changes collision
 var offset : float = 0 # Distance the bullet should travel at the very beggining to escape an interior of shooter
 
+var hit_sound : PackedScene = preload("res://effects/HitSound.tscn")
+
 onready var sprite := $Sprite
 
 func _ready():
@@ -39,4 +41,9 @@ func _on_Bullet_area_entered(area):
 func hit(target):
 	if target.has_method("on_hit"):
 		target.on_hit()
+	
+	var audio_effect = hit_sound.instance()
+	audio_effect.global_position = global_position
+	get_parent().add_child(audio_effect)
+	
 	queue_free()
