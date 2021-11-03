@@ -89,4 +89,5 @@ shortcut = SubResource( 6 )
 [node name="Stars" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Buttons/Upgrades" to="." method="_on_Upgrades_pressed"]
 [connection signal="pressed" from="Buttons/Exit" to="." method="_on_Exit_pressed"]

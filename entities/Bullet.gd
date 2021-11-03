@@ -30,15 +30,15 @@ func _physics_process(delta):
 	position += direction * delta
 
 
-func _on_Bullet_body_entered(body):
+func _on_Bullet_body_entered(body) -> void:
 	hit(body)
 
 
-func _on_Bullet_area_entered(area):
+func _on_Bullet_area_entered(area) -> void:
 	hit(area)
 
 
-func hit(target):
+func hit(target) -> void:
 	if target.has_method("on_hit"):
 		target.on_hit()
 	

@@ -15,26 +15,26 @@ func _ready():
 		track[i] = 0
 
 
-func set_playlist(val : String, reset : bool = false):
+func set_playlist(val : String, reset : bool = false) -> void:
 	playlist = val
 	if reset:
 		track[playlist] = 0
 
 
-func next_track():
+func next_track() -> void:
 	track[playlist] += 1
 	if len(playlists[playlist]) <= track[playlist]:
 		track[playlist] = 0
 	start()
 
 
-func start():
-	#return
+func start() -> void:
+	#return  # Uncomment when too tired by music
 	var new_stream = load(playlists[playlist][track[playlist]])
 	if not playing or stream != new_stream:
 		stream = new_stream
 		playing = true
 
 
-func stop():
+func stop() -> void:
 	playing = false

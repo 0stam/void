@@ -3,7 +3,7 @@
 		"enemy_ratio": 1,
 		"enemy_modifier": 0,
 		"enemy_speed": 500,
-		"energy_ratio": 1,
+		"energy_ratio": 0.94,
 		"energy_modifier": -0.2,
 		"shooter_ratio": 0,
 		"shooter_modifier": 0,
@@ -19,6 +19,6 @@
 		"shooter_ratio": 0.7,
 		"shooter_modifier": 0,
 		"end": 30000,
-		"level_description": "With the first gates surpassed, difficulty ramps slightly just to keep you going to the actually hard part."
+		"level_description": "With the first gates conquered, difficulty ramps slightly just to keep you going to the actually hard part."
 	}
 }

@@ -12,7 +12,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 
-func _on_Player_chunk_generation_requested(chunk_position):
+func _on_Player_chunk_generation_requested(chunk_position) -> void:
 	var new_chunk : Node2D = chunk.instance()
 	new_chunk.position = chunk_position
 	chunks.add_child(new_chunk)

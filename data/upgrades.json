@@ -1,0 +1,74 @@
+[
+    {
+        "id": "vision",
+        "name": "vision",
+        "description": "Increases your vision range. Very versatile upgrade, allowing you not only to navigate easier or find energy from a greater distance, but also gives you more time to react to incoming enemies. Suitable for majority of playstyles.",
+        "tier": 1
+    },
+    {
+        "id": "speed",
+        "name": "speed boost",
+        "description": "Gives you a decaying speed boost whenever you collect an energy or successfully hit an enemy, allowing you to travel faster and pull of satysfying outplays. Recommended for people looking for a more dynamic gameplay, ready to pilot their characters with greater skill.",
+        "tier": 1
+    },
+    {
+        "id": "energy",
+        "name": "energy",
+        "description": "Increases the time it takes to completly vanish after collecting an energy, giving you an oportunity to travel with greater caution or making your path more independent on the energy placement. Recommended especially for begginers or people struggling with the energy management.",
+        "tier": 1
+    },
+    {
+        "id": "bouncing_bullets",
+        "name": "bouncing bullets",
+        "description": "placeholder",
+        "tier": 2
+    },
+    {
+        "id": "teleportation",
+        "name": "teleportation",
+        "description": "placeholder",
+        "tier": 2
+    },
+    {
+        "id": "todo",
+        "name": "todo",
+        "description": "placeholder",
+        "tier": 2
+    },
+    {
+        "id": "blink",
+        "name": "blink",
+        "description": "placeholder",
+        "tier": 3
+    },
+    {
+        "id": "triple_shot",
+        "name": "triple shot",
+        "description": "placeholder",
+        "tier": 3
+    },
+    {
+        "id": "explosion",
+        "name": "explosion",
+        "description": "placeholder",
+        "tier": 3
+    },
+    {
+        "id": "tier3_1",
+        "name": "bouncing bullets",
+        "description": "placeholder",
+        "tier": 4
+    },
+    {
+        "id": "tier3_2",
+        "name": "bouncing bullets",
+        "description": "placeholder",
+        "tier": 4
+    },
+    {
+        "id": "tier3_3",
+        "name": "bouncing bullets",
+        "description": "placeholder",
+        "tier": 2
+    }
+]

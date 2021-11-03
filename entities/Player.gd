@@ -51,7 +51,7 @@ func _process(delta):
 	Global.player_position = position
 
 
-func _on_ChunkTimer_timeout():
+func _on_ChunkTimer_timeout() -> void:
 	Global.fps = int(Engine.get_frames_per_second())
 	
 	Global.calculate_progress()
@@ -64,11 +64,11 @@ func _on_ChunkTimer_timeout():
 				emit_signal("chunk_generation_requested", rounded_position + Vector2(i, j) * chunk_size)
 
 
-func on_chunk_created(chunk_position : Vector2):
+func on_chunk_created(chunk_position : Vector2) -> void:
 	chunk_positions.append(chunk_position)
 
 
-func on_chunk_destroyed(chunk_position : Vector2):
+func on_chunk_destroyed(chunk_position : Vector2) -> void:
 	chunk_positions.erase(chunk_position)
 
 
@@ -76,7 +76,7 @@ func restore_energy(amount : float = max_energy):
 	energy = clamp(energy + amount, 0, max_energy)
 
 
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed and can_shoot:
 		var spawn = bullet.instance()
 		spawn.direction = global_position.direction_to(get_global_mouse_position())
@@ -89,15 +89,15 @@ func _input(event):
 		shoot_timer.start()
 
 
-func _on_ShootTimer_timeout():
+func _on_ShootTimer_timeout() -> void:
 	can_shoot = true
 
 
-func on_death():
+func on_death() -> void:
 # warning-ignore:return_value_discarded
 	print(Global.player_progress)
 	get_tree().change_scene("res://main/Main.tscn")
 
 
-func on_hit():
+func on_hit() -> void:
 	on_death()

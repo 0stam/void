@@ -35,7 +35,7 @@ func _ready():
 	initialize_level(levels[level])
 
 
-func calculate_progress():
+func calculate_progress() -> void:
 	if player_position.length():
 		player_progress = player_position.length() / end
 	else:
@@ -46,7 +46,7 @@ func calculate_progress():
 		get_tree().change_scene("res://ui/MainMenu.tscn")
 
 
-func parse_level_data():
+func parse_level_data() -> void:
 	var file : File = File.new()
 # warning-ignore:return_value_discarded
 	file.open("res://data/levels.json", File.READ)
@@ -54,12 +54,12 @@ func parse_level_data():
 	file.close()
 
 
-func initialize_level(name : String):
+func initialize_level(name : String) -> void:
 	for i in level_data[name]:
 		set(i, level_data[name][i])
 
 
-func level_finished():
+func level_finished() -> void:
 	level += 1
 	if level >= len(levels):
 		level = 0
@@ -68,7 +68,7 @@ func level_finished():
 	initialize_level(levels[level])
 
 
-func change_level(change : int):
+func change_level(change : int) -> void:
 	var positive : bool = change > 0
 	change = int(abs(change))
 	for i in change:
@@ -83,7 +83,7 @@ func change_level(change : int):
 	initialize_level(levels[level])
 
 
-func set_fps(val : int):
+func set_fps(val : int) -> void:
 	if val != fps:
 		fps = typical_fps[-1]
 		for i in range(1, len(typical_fps)):

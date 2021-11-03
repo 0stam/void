@@ -21,9 +21,9 @@ func _process(delta):
 	velocity = move_and_slide(velocity)
 
 
-func on_hit():
+func on_hit() -> void:
 	queue_free()
 
 
-func _on_PlayerCollision_body_entered(_body):
+func _on_PlayerCollision_body_entered(_body) -> void:
 	get_tree().call_group("player", "on_death")

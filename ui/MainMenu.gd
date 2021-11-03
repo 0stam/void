@@ -14,3 +14,8 @@ func _on_Play_pressed():
 
 func _on_Exit_pressed():
 	get_tree().quit()
+
+
+func _on_Upgrades_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://ui/Upgrades.tscn")

@@ -22,15 +22,15 @@ func _process(delta):
 	velocity = move_and_slide(velocity)
 
 
-func on_hit():
+func on_hit() -> void:
 	queue_free()
 
 
-func _on_PlayerCollision_body_entered(_body):
+func _on_PlayerCollision_body_entered(_body) -> void:
 	get_tree().call_group("player", "on_death")
 
 
-func _on_ShootTimer_timeout():
+func _on_ShootTimer_timeout() -> void:
 	var spawn := bullet.instance()
 	spawn.direction = global_position.direction_to(Global.player_position)
 	spawn.color = modulate
