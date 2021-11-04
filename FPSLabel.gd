@@ -8,10 +8,10 @@ extends CanvasLayer
 
 enum Position {TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT, NONE}
 
-export (Position) var position = Position.TOP_LEFT
-export(int) var margin : int = 5
+export(Position) var position = Position.TOP_LEFT
+export(int) var margin: int = 5
 
-var label : Label
+var label: Label
 
 
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 	update_position()
 
 # pos should be of type Position
-func set_position(pos : int):
+func set_position(pos: int):
 	position = pos
 	update_position()
 
@@ -42,5 +42,5 @@ func update_position():
 			offset = Vector2(viewport_size.x - margin - label_size.x, viewport_size.y - margin - label_size.y)
 
 
-func _process(_delta : float) -> void:
+func _process(_delta: float) -> void:
 	label.text = "fps: " + str(Engine.get_frames_per_second())

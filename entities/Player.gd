@@ -2,31 +2,31 @@ extends KinematicBody2D
 
 signal chunk_generation_requested(position)
 
-export var speed : int = 600
-export var acceleration : float = 8
-export var decceleration : float = 8
-export var max_energy : float = 100
-export var energy_decrease : float = 4
+export var speed: int = 600
+export var acceleration: float = 8
+export var decceleration: float = 8
+export var max_energy: float = 100
+export var energy_decrease: float = 4
 
-var direction : Vector2 = Vector2.ZERO
-var velocity : Vector2 = Vector2.ZERO
-var chunk_positions : Array = []
-var chunk_size : int = Global.chunk_extend * 2
-var can_shoot : bool = true
+var direction: Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
+var chunk_positions: Array = []
+var chunk_size: int = Global.chunk_extend * 2
+var can_shoot: bool = true
 
-var bullet : PackedScene = preload("res://entities/Bullet.tscn")
+var bullet: PackedScene = preload("res://entities/Bullet.tscn")
 
-onready var energy : float = max_energy
-onready var shoot_timer : Timer = $ShootTimer
+onready var energy: float = max_energy
+onready var shoot_timer: Timer = $ShootTimer
 
 
-func _ready():
+func _ready() -> void:
 	get_tree().call_group("enemy", "queue_free")
 	yield(get_tree().create_timer(0.001), "timeout")
 	_on_ChunkTimer_timeout()
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	# Input processing
 	direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	direction.y = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -64,19 +64,19 @@ func _on_ChunkTimer_timeout() -> void:
 				emit_signal("chunk_generation_requested", rounded_position + Vector2(i, j) * chunk_size)
 
 
-func on_chunk_created(chunk_position : Vector2) -> void:
+func on_chunk_created(chunk_position: Vector2) -> void:
 	chunk_positions.append(chunk_position)
 
 
-func on_chunk_destroyed(chunk_position : Vector2) -> void:
+func on_chunk_destroyed(chunk_position: Vector2) -> void:
 	chunk_positions.erase(chunk_position)
 
 
-func restore_energy(amount : float = max_energy):
+func restore_energy(amount: float = max_energy):
 	energy = clamp(energy + amount, 0, max_energy)
 
 
-func _input(event) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed and can_shoot:
 		var spawn = bullet.instance()
 		spawn.direction = global_position.direction_to(get_global_mouse_position())
@@ -96,6 +96,7 @@ func _on_ShootTimer_timeout() -> void:
 func on_death() -> void:
 # warning-ignore:return_value_discarded
 	print(Global.player_progress)
+	Global.player_progress = 0
 	get_tree().change_scene("res://main/Main.tscn")
 
 

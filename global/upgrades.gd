@@ -27,23 +27,24 @@ func parse_data():
 		selected.append("")
 
 
-func get_upgrade_data(name : String) -> Dictionary:
+func get_upgrade_data(name: String) -> Dictionary:
 	for i in upgrades:
 		if i["id"] == name:
 			var data_copy : Dictionary = i.duplicate(true)
-			data_copy["available"] = max_tier >= i["tier"]
+			data_copy["available"] = tier >= i["tier"]
 			data_copy["selected"] = selected[i["tier"] - 1] == i["id"]
 			return data_copy
 	return {"error": "Name not found"}
 
 
-func is_upgrade_available(name : String) -> bool:
+func is_upgrade_available(name: String) -> bool:
 	for i in upgrades:
 		if i["id"] == name:
-			return max_tier <= i["tier"]
+			return tier >= i["tier"] # TODO: change max_tier to tier?
 	return false
 
-func select(name : String) -> void:
+
+func select(name: String) -> void:
 	for i in upgrades:
 		if i["id"] == name:
 			selected[i["tier"] - 1] = name

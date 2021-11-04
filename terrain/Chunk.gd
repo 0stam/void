@@ -1,15 +1,15 @@
 extends Node2D
 
-var wall : PackedScene = preload("res://terrain/Wall.tscn")
-var energy : PackedScene = preload("res://entities/Energy.tscn")
-var enemy : PackedScene = preload("res://entities/Enemy.tscn")
-var shooter : PackedScene = preload("res://entities/Shooter.tscn")
-var extend : int = Global.chunk_extend
+var wall: PackedScene = preload("res://terrain/Wall.tscn")
+var energy: PackedScene = preload("res://entities/Energy.tscn")
+var enemy: PackedScene = preload("res://entities/Enemy.tscn")
+var shooter: PackedScene = preload("res://entities/Shooter.tscn")
+var extend: int = Global.chunk_extend
 
-export var wall_count : int = 5
+export var wall_count: int = 5
 
 
-func _ready():
+func _ready() -> void:
 	get_tree().call_group("player", "on_chunk_created", position)
 	if position.length() + extend >= Global.end:
 		queue_free()
@@ -19,7 +19,7 @@ func _ready():
 
 func generate() -> void:
 	for i in wall_count:
-		var spawn_position : Vector2 = get_random_position()
+		var spawn_position: Vector2 = get_random_position()
 		var spawn = wall.instance()
 		spawn.position = spawn_position
 		spawn.rotation = rand_range(0, 2 * PI)
@@ -36,7 +36,7 @@ func generate() -> void:
 		get_parent().call_deferred("add_child", spawn)
 
 
-func check_death(player_position : Vector2) -> void:
+func check_death(player_position: Vector2) -> void:
 	if (position - player_position).length() > 20000:
 		get_tree().call_group("player", "on_chunk_destroyed", position)
 		queue_free()

@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
-var speed : int = Global.enemy_speed
-var acceleration : float = 8
+var speed: int = Global.enemy_speed
+var acceleration: float = 8
 
-var velocity : Vector2 = Vector2.ZERO
+var velocity: Vector2 = Vector2.ZERO
 
 
-func _ready():
+func _ready() -> void:
 	pass
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	var player_direction : Vector2 = global_position.direction_to(Global.player_position)
 	if global_position.distance_to(Global.player_position) > 10000:
 		queue_free()

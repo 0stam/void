@@ -3,7 +3,7 @@ tool
 
 signal pressed
 
-var is_ready = false
+var is_ready: bool = false
 
 export var text : String = "" setget set_text
 export var border_width : int = 7 setget set_border_width
@@ -14,7 +14,7 @@ onready var button := $Margin/Button
 onready var border := $Border
 
 
-func _ready():
+func _ready() -> void:
 	is_ready = true
 	set_text(text)
 	set_border_width(border_width)
@@ -22,7 +22,7 @@ func _ready():
 	set_shortcut(shortcut)
 
 
-func _on_Button_pressed():
+func _on_Button_pressed() -> void:
 	emit_signal("pressed")
 
 
@@ -32,7 +32,7 @@ func set_text(val : String):
 		button.text = val
 
 
-func set_border_width(val : int):
+func set_border_width(val: int) -> void:
 	border_width = val
 	if is_ready:
 		border.patch_margin_bottom = border_width
@@ -41,13 +41,13 @@ func set_border_width(val : int):
 		border.patch_margin_right = border_width
 
 
-func set_font(val : Font):
+func set_font(val: Font) -> void:
 	font = val
 	if is_ready:
 		button.set("custom_fonts/font", font)
 
 
-func set_shortcut(val : ShortCut):
+func set_shortcut(val : ShortCut) -> void:
 	shortcut = val
 	if is_ready:
 		button.shortcut = shortcut
